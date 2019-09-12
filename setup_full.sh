@@ -33,7 +33,7 @@ echo "compinit" >> ~/.zshrc
 #------------------------------------------------
 
 # install my vimrc
-curl -fsSL https://raw.githubusercontent.com/he7086/config/master/config/vimrc >> ~/.vimrc
+curl -fsSL https://raw.githubusercontent.com/HE7086/config/master/config/vimrc >> ~/.vimrc
 
 # install solarized theme for vim
 curl -fsSL https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim >> ~/.vim/colors/solarized.vim
@@ -77,7 +77,7 @@ echo 'eval $(thefuck --alias)' >> ~/.zshrc
 
 # install kitty
 sh $(curl -fsSL https://sw.kovidgoyal.net/kitty/installer.sh)
-curl -fsSL https://raw.githubusercontent.com/he7086/config/master/config/kitty.conf >> ~/.config/kitty/kitty.conf
+curl -fsSL https://raw.githubusercontent.com/HE7086/config/master/config/kitty.conf >> ~/.config/kitty/kitty.conf
 echo "kitty + complete setup zsh" >> ~/.zshrc
 
 # power manager for thinkpads

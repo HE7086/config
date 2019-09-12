@@ -2,7 +2,7 @@
 
 # minimal installation
 apt update
-apt install vim zsh curl git fonts-firacode -y
+apt install vim zsh curl git -y
 
 #------------------------------------------------
 #                zsh setup                       
@@ -30,9 +30,10 @@ echo "compinit" >> ~/.zshrc
 #------------------------------------------------
 
 # install my vimrc
-curl -fsSL https://raw.githubusercontent.com/he7086/config/master/config/vimrc >> ~/.vimrc
+curl -fsSL https://raw.githubusercontent.com/HE7086/config/master/config/vimrc >> ~/.vimrc
 
 # install solarized theme for vim
+mkdir -p ~/.vim/colors
 curl -fsSL https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim >> ~/.vim/colors/solarized.vim
 echo "colorscheme solarized" >> ~/.vimrc
 echo "set background=dark" >> ~/.vimrc
@@ -47,6 +48,7 @@ git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-
 # add help tags for vim-airline
 (cd ~/.vim/pack/dist/start && vim -u NONE -c "helptags vim-airline/doc" -c q)
 # install solarized theme for vim-airline
+mkdir -p ~/.vim/autoload/airline/themes
 curl -fsSL https://raw.githubusercontent.com/vim-airline/vim-airline-themes/master/autoload/airline/themes/solarized.vim >> ~/.vim/autoload/airline/themes/solarized.vim
 echo "g:airline_theme='solarized'" >> ~/.vimrc
 echo "g:airline_powerline_fonts=1" >> ~/.vimrc
