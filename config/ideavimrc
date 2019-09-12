@@ -1,0 +1,34 @@
+set nocompatible
+" indent and tab
+set expandtab
+set smartindent
+set autoindent
+" no bells
+set noerrorbells
+set novisualbell
+" line numbers
+set number
+set relativenumber
+" search options
+set showmatch
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+set nowrap
+set laststatus=2
+set showcmd
+set showmode
+set mouse=a
+
+noremap <F6> :set nu! rnu!<CR>
+noremap <F7> :set wrap!<CR>
+nmap k <up>
+nmap j <down>
+nnoremap OC >>
+nnoremap OD <<
+nnoremap == :action ReformatCode<CR>
+nnoremap <up> :action MoveLineUp<CR>
+nnoremap <down> :action MoveLineDown<CR>
+set surround

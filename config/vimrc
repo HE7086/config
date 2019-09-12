@@ -1,0 +1,75 @@
+set nocompatible
+
+" Always show statusline
+set laststatus=2
+set showmode
+
+" Use colours and encoding
+set encoding=utf-8
+set t_Co=256
+
+" colors and syntax
+syntax on
+filetype on
+filetype plugin on
+
+set nofoldenable
+" tab and indent settings
+filetype indent on
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
+set smartindent
+
+" no bells 
+set noerrorbells
+set novisualbell
+
+set number
+set relativenumber
+set showcmd
+" set mouse=a
+
+" searching settings
+set showmatch
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set matchtime=10
+
+set lazyredraw
+
+" word wrap only for text files
+set nowrap
+autocmd BufRead,BufNewFile *.txt,*.md,*.tex setlocal wrap
+
+" some key bindings
+" Arrow keys -> move/indent line
+nmap OA k
+nmap OB j 
+nnoremap OC >>
+nnoremap OD <<
+" Alt + j -> move current line up
+nnoremap j ddp==
+" Alt + k -> move current line down
+nnoremap k :call<Space>MoveLineUp()<CR>==
+function MoveLineUp()
+    if line(".") == line("$")
+        execute "normal! ddP"
+    elseif line(".") != 1
+        execute "normal! ddkP"
+    endif
+endfunction
+" cancel line number for copying
+noremap <F6> :set nu! rnu!<CR>
+" toggle wrap
+noremap <F7> :set wrap!<CR>
+" Format the hole file
+nnoremap =-= gg=G
+" Save without exit
+nnoremap ZS :w<CR>
+
