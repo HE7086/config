@@ -9,13 +9,13 @@ There's also a setup script for quick installing.
 ## Quick Installation
 run this for full install (which is not recommand for most people except myself)
 ```shell
-sudo sh -c "$(wget -O- https://raw.githubusercontent.com/HE7086/config/master/setup_full.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/HE7086/config/master/setup_full.sh)"
 ```
 
 
 run this for basic install (only contains zsh, git and their themes)
 ```shell
-sudo sh -c "$(wget -O- https://raw.githubusercontent.com/HE7086/config/master/setup_basic.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/HE7086/config/master/setup_basic.sh)"
 ```
 
 
