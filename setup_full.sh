@@ -1,8 +1,7 @@
 #! /bin/bash
 
-# minimal installation
 sudo apt update
-sudo apt install vim zsh curl git -y
+sudo apt install vim zsh curl git neovim -y
 
 #------------------------------------------------
 #                zsh setup                       
@@ -24,6 +23,8 @@ sed -i "s/\(plugins=(.*\))/\1 zsh-syntax-highlighting)/" ~/.zshrc
 # some other settings for zsh
 echo "autoload -Uz compinit" >> ~/.zshrc
 echo "compinit" >> ~/.zshrc
+
+# use neovim instead of vim in the full version
 
 #------------------------------------------------
 #                vim setup                       
@@ -55,7 +56,16 @@ echo "let g:airline_powerline_fonts=1" >> ~/.vimrc
 echo "let g:airline_extensions=[]" >> ~/.vimrc
 
 #------------------------------------------------
-#                other useful setup                       
+#                neovim setup                       
+#------------------------------------------------
+
+mkdir -p ~/.config/nvim
+curl -fsSL https://raw.githubusercontent.com/HE7086/config/master/config/init.vim >> ~/.config/nvim/init.vim
+cp -r ~/.vim/* ~/.config/nvim/
+echo "alias vim='nvim'"
+
+#------------------------------------------------
+#                other non-gui setup                       
 #------------------------------------------------
 
 # custom keyboard layout EN_DE
@@ -71,8 +81,8 @@ sudo apt install default-jdk haskell-platform python3-dev nodejs -y
 sudo apt install sl fortune cowsay lolcat -y
 
 # command line tools
-sudo apt install htop neofetch python-pip python3-pip -y
-pip3 install thefuck
+sudo apt install htop neofetch python-pip python3-pip python3-setuptools -y
+sudo pip3 install thefuck
 echo 'eval $(thefuck --alias)' >> ~/.zshrc
 
 # install kitty
@@ -96,5 +106,14 @@ then
     fi
 fi
 
+#------------------------------------------------
+#               other gui setup
+#------------------------------------------------
+sudo apt install gnome-tweaks synaptic alacarte vim-gui-common -y
+echo 'set guifont=Fira\ Code\ Retina' >> ~/.vimrc
+#------------------------------------------------
+#                   finish
+#------------------------------------------------
 # run at last since it would stop the previous shell
+echo "Installation Finished!"
 exec zsh -l
